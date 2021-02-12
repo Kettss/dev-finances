@@ -2,8 +2,36 @@
     --color-all: #363f5f;
     --green: #49AA26;
     --light-green: #3dd705;
-    --red: #e92929;
-    --light-red: #ee1919;
+    --purple: #8b008b;
+    --light-purple: #bf40bf;
+    --dark-purple:#800080;
+    --background: #f0f2f5;
+    --dev-color: #363f5f;
+    --card-color: white
+}
+
+body.dark {
+    --color-all: #363f5f;
+    --green: #49AA26;
+    --light-green: #3dd705;
+    --purple: #0e0e4a;
+    --light-purple: #191970;
+    --dark-purple: #0B0B3B;
+    --background: #091921;
+    --dev-color: #f0f2f5;
+    --card-color: #f7f7d3;
+}
+
+body.light {
+    --color-all: #363f5f;
+    --green: #49AA26;
+    --light-green: #3dd705;
+    --purple: #8b008b;
+    --light-purple: #bf40bf;
+    --dark-purple:#800080;
+    --background: #f0f2f5;
+    --dev-color: #363f5f;
+    --card-color: white;
 }
 
 * {
@@ -17,7 +45,7 @@ html{
 }
 
 body{
-    background: #f0f2f5;
+    background: var(--background);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -97,7 +125,7 @@ button:hover{
 }
 
 header{
-    background: #940a0a;
+    background: var(--dark-purple);
     padding: 2rem 0 10rem;
     text-align: center;
 }
@@ -116,11 +144,12 @@ header h1{
 }
 
 .card {
-    background: white;
+    background: var(--card-color);
     padding: 1.5rem 2rem;
     border-radius: 6px;
     margin-bottom: 2rem;
     color: var(--color-all);
+    box-shadow: -6px 8px 5px var(--purple);
 }
 
 .card h3{
@@ -139,7 +168,7 @@ header h1{
 
 .card.total{
     color: white;
-    background: #c90404;
+    background: var(--light-purple);
 }
 
 #transaction {
@@ -165,7 +194,7 @@ table tbody tr td:last-child {
 }
 
 table th{
-    background: white;
+    background: var(--card-color);
     font-weight: normal;
     padding: 1rem 2rem;
     text-align: left;
@@ -180,7 +209,7 @@ table tbody tr:hover {
 }
 
 table td{
-    background: white;
+    background: var(--card-color);
     padding: 1rem 2rem;
 }
 
@@ -260,8 +289,53 @@ input{
 footer{
     text-align: center;
     padding: 4rem 0 2rem;
-    color: var(--color-all);
+    color: var(--dev-color);
     opacity: 0.6;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+}
+
+
+.label {
+    background-color: var(--background-color-header);
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+    transform: scale(1.5);
+}
+
+.label .ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(24px);
+}
+
+.fa-moon {
+    color: #363f5f;
+}
+
+.fa-sun {
+    color: #f39c12;
 }
 
 /*-------------------------- responsive -------------------*/
